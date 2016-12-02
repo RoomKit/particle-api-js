@@ -16,7 +16,7 @@ import Client from './Client';
  */
 class Particle {
 	/**
-	 * Contructor for the Cloud API wrapper.
+	 * Constructor for the Cloud API wrapper.
 	 *
 	 * Create a new Particle object and call methods below on it.
 	 *
