@@ -16,9 +16,13 @@ const props = {
 	password: 'test-password',
 	data: { sentient: true },
 	username: 'test-user',
+    email: 'test-user@zombo.com',
 	argument: 'noThanks',
 	shouldUpdate: 'duh',
 	name: 'specialName',
+    orgSlug: 'awesomeOrganization',
+    clientId: 'particle-api',
+    clientSecret: 'particle-api',
 	productId: '9001',
 	deviceId: '1337',
 	key: 'c1a55e5',
@@ -98,6 +102,23 @@ describe('ParticleAPI', () => {
 							username: props.username,
 							password: props.password,
 							account_info: props.accountInfo
+						}
+					});
+				});
+			});
+		});
+        describe('.createShadowUser', () => {
+			it('sends credentials', () => {
+				return api.createShadowUser(props).then(( results ) => {
+					results.should.eql({
+						method: 'post',
+						uri: '/v1/products/' + props.orgSlug + '/customers',
+						auth: undefined,
+						data: {
+                            email: props.email,
+                            client_id: props.clientId,
+                            client_secret: props.clientSecret,
+                            no_password: 'true',
 						}
 					});
 				});

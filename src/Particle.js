@@ -61,6 +61,21 @@ class Particle {
 	}
 
 	/**
+	 * Create a shadow user account (two-legged auth) for the Particle Cloud
+	 * @param  {String} $0.username Email of the new user
+	 * @param  {String} $0.accountInfo Object that contains account information fields such as user real name, company name, business account flag etc
+	 * @return {Promise}
+	 */
+	createShadowUser({ email }) {
+		return this.post('/v1/products/' + this.orgSlug + '/customers', {
+			email,
+			no_password: 'true',
+			client_id: this.clientId,
+			client_secret: this.clientSecret,
+		});
+	}
+
+	/**
 	 * Verify new user account via verification email
 	 * @param  {String} $0.token the string token sent in the verification email
 	 * @return {Promise}
@@ -113,7 +128,7 @@ class Particle {
 	}
 
 	/**
-	 * Get detailed informationa about a device
+	 * Get detailed information about a device
 	 * @param  {String} $0.deviceId Device ID or Name
 	 * @param  {String} $0.auth     Access token
 	 * @return {Promise}
