@@ -62,8 +62,7 @@ class Particle {
 
 	/**
 	 * Create a shadow user account (two-legged auth) for the Particle Cloud
-	 * @param  {String} $0.username Email of the new user
-	 * @param  {String} $0.accountInfo Object that contains account information fields such as user real name, company name, business account flag etc
+	 * @param  {String} $0.email of the shadow user
 	 * @return {Promise}
 	 */
 	createShadowUser({ email }) {
