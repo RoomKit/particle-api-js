@@ -74,6 +74,7 @@ class Particle {
 		});
 	}
 
+
 	/**
 	 * Verify new user account via verification email
 	 * @param  {String} $0.token the string token sent in the verification email
